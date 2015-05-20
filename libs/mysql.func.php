@@ -43,6 +43,10 @@ function update($link, $table, $array, $where){
 
 function fetchOne($link, $sql, $result_type = MYSQL_ASSOC){
     $result = mysqli_query($link, $sql);
+    if (!$result) {
+        printf("Error: %s\n", mysqli_error($link));
+        exit();
+    }
     $row = mysqli_fetch_array($result, $result_type);
     return $row;
 }

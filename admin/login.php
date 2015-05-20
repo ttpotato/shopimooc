@@ -1,4 +1,7 @@
 <!doctype html>
+<?PHP
+require_once '..\include.php';
+?>
 <html>
 <head>
 <meta charset="utf-8">
