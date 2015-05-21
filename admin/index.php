@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>-.-</title>
+<title>首页</title>
 <link rel="stylesheet" href="styles/backstage.css">
 </head>
 
@@ -41,7 +41,7 @@
             </div>
         </div>
         <!--左侧列表-->
-        <div class="menu">
+       <div class="menu">
             <div class="cont">
                 <div class="title">管理员</div>
                 <ul class="mList">
