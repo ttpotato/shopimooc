@@ -86,7 +86,7 @@
                          <li>
                         <h3><span onclick="show('menu6','change6')" id="change6">+</span>商品图片管理</h3>
                         <dl id="menu6" style="display:none;">
-                            <dd><a href="listProImages.php" target="mainFrame">商品图片列表</a></dd>
+                            <dd><a href="listProImgs.php" target="mainFrame">商品图片列表</a></dd>
                         </dl>
                     </li>
                 </ul>

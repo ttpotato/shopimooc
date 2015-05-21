@@ -1,5 +1,5 @@
 <?php
-require_once '..\include.php';
+require_once '../include.php';
 function createVerifyImg(){
     $width = 80;
     $height = 28;
