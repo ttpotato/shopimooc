@@ -5,49 +5,26 @@
 </head>
 
 <body>
-<form method="post" action="addAdmin.php">
+<form method="post" action="adminAction.php?act=addAdmin">
     <table>
         <tr>
             <th>管理员名称：</th>
-            <th>
-                <input type="text" name="adminName">
-            </th>
+            <th><input type="text" name="adminName"></th>
         </tr>
         <tr>
-            <th>密码：</th>
-            <th>
-                <input type="password" name="password">
-            </th>
+            <th>管理员密码：</th>
+            <th><input type="password" name="password"></th>
         </tr>
         <tr>
-            <th>邮箱：</th>
-            <th>
-                <input type="text" name="email">
-            </th>
+            <th>管理员邮箱：</th>
+            <th><input type="text" name="email"></th>
+        </tr>
+        <tr>
             <th>
                 <input type="submit" value="确定" name="submit">
                 <input type="reset" value="重置" name="reset">
             </th>
         </tr>
-    </table>mysqli_insert_id
-</form>
-<?php
-require_once '../include.php';
-
-$adminName = $_POST["adminName"];
-$password = $_POST["password"];
-$email = $_POST["email"];
-
-$link = connect();
-$table = "imooc_admin";
-$array = array("adminName" => $adminName, "password" => $password, "email" => $email);
-$result = insert($link, $table, $array);
-if($result == 0){
-    alarmAndReturn("增加管理员错误", "addAdmin.php");
-}else{
-    alarmAndReturn("success", "addAdmin.php");
-}
-
-?>
+    </table>
 </body>
 </html>

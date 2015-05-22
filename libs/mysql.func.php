@@ -18,7 +18,6 @@ function insert($link, $table, $array){
 function delete($link, $table, $where=null){
     $where = $where==null?null:"WHERE $where";
     $sql = "DELETE FROM $table $where";
-    echo $sql;
     mysqli_query($link, $sql);
     return mysqli_affected_rows($link);
 }

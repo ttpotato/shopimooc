@@ -7,3 +7,4 @@ require_once 'string.func.php';
 require_once 'mysql.func.php';
 require_once 'configs.php';
 require_once 'common.func.php';
+require_once 'admin.core.php';
