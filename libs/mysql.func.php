@@ -6,7 +6,8 @@ function connect(){
     return $link;
 }
 #INSERT INTO $table ($keys) VALUES ('$values');
-function insert($link, $table, $array){
+function insert($table, $array){
+    $link = connect();
     $keys = join(",",array_keys($array));
     $values="'".join("','",array_values($array))."'";
     $sql = "INSERT INTO $table ($keys) VALUES ($values)";
@@ -15,7 +16,8 @@ function insert($link, $table, $array){
 }
 
 #DELETE FROM $table WHERE $where;
-function delete($link, $table, $where=null){
+function delete($table, $where=null){
+    $link = connect();
     $where = $where==null?null:"WHERE $where";
     $sql = "DELETE FROM $table $where";
     mysqli_query($link, $sql);
@@ -23,7 +25,8 @@ function delete($link, $table, $where=null){
 }
 
 #UPDATE $table SET $keys=$values,$keys=$values WHERE $where;
-function update($link, $table, $array, $where){
+function update($table, $array, $where){
+    $link = connect();
     $str = "";
     if(count(array_keys($array)) >= 1) {
         foreach ($array as $key => $val) {
@@ -40,7 +43,8 @@ function update($link, $table, $array, $where){
     return mysqli_affected_rows($link);
 }
 
-function fetchOne($link, $sql, $result_type = MYSQL_ASSOC){
+function fetchOne($sql, $result_type = MYSQL_ASSOC){
+    $link = connect();
     $result = mysqli_query($link, $sql);
     if (!$result) {
         printf("Error: %s\n", mysqli_error($link));
@@ -50,10 +54,17 @@ function fetchOne($link, $sql, $result_type = MYSQL_ASSOC){
     return $row;
 }
 
-function fetchAll($link, $sql, $result_type = MYSQL_ASSOC){
+function fetchAll($sql, $result_type = MYSQL_ASSOC){
+    $link = connect();
     $result=mysqli_query($link, $sql);
     while($row=mysqli_fetch_array($result,$result_type)){
         $rows[]=$row;
     }
     return $rows;
+}
+
+function getResultNum($sql){
+    $link = connect();
+    $result = mysqli_query($link, $sql);
+    return mysqli_num_rows($result);
 }

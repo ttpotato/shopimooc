@@ -1,6 +1,6 @@
 <?php 
-#require_once '../include.php';
-#checkLogined();
+require_once '../include.php';
+checkLogined();
 ?>
 <!doctype html>
 <html>
@@ -27,7 +27,7 @@
 				}
             ?>
             
-            </b>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#" class="icon icon_i">首页</a><span></span><a href="#" class="icon icon_j">前进</a><span></span><a href="#" class="icon icon_t">后退</a><span></span><a href="#" class="icon icon_n">刷新</a><span></span><a href="doAdminAction.php?act=logout" class="icon icon_e">退出</a>
+            </b>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#" class="icon icon_i">首页</a><span></span><a href="#" class="icon icon_j">前进</a><span></span><a href="#" class="icon icon_t">后退</a><span></span><a href="#" class="icon icon_n">刷新</a><span></span><a href="adminAction.php?act=logout" class="icon icon_e">退出</a>
         </div>
     </div>
     <div class="content clearfix">

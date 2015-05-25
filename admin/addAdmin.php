@@ -6,25 +6,28 @@
 
 <body>
 <form method="post" action="adminAction.php?act=addAdmin">
-    <table>
+    <center>
+    <table width="50%" cellpadding="5" cellspacing="0" border="2">
         <tr>
             <th>管理员名称：</th>
-            <th><input type="text" name="adminName"></th>
+            <td><input type="text" name="adminName"></td>
         </tr>
         <tr>
             <th>管理员密码：</th>
-            <th><input type="password" name="password"></th>
+            <td><input type="password" name="password"></td>
         </tr>
         <tr>
             <th>管理员邮箱：</th>
-            <th><input type="text" name="email"></th>
+            <td><input type="text" name="email"></td>
         </tr>
         <tr>
-            <th>
+            <td></td>
+            <td>
                 <input type="submit" value="确定" name="submit">
                 <input type="reset" value="重置" name="reset">
-            </th>
+            </td>
         </tr>
     </table>
+    </center>
 </body>
 </html>

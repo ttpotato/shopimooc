@@ -11,6 +11,9 @@ if($act == "addAdmin"){
     $msg = deleteAdmin($id);
 }elseif($act == "addUser"){
     $msg = addUser();
+}elseif($act == "logout"){
+    logout();
+    $msg = "";
 }
 ?>
 
