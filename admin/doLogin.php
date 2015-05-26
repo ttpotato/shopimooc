@@ -6,9 +6,8 @@ $verify = $_POST["verify"];
 $verifyString = $_SESSION["verifyString"];
 
 if(strcasecmp($verify, $verifyString) == 0) {
-    $link = connect();
     echo $sql="select * from imooc_admin where username='{$username}' and passwordshopimooc='{$password}'";
-    $result = fetchOne($link, $sql);
+    $result = fetchOne($sql);
     if ($result == null){
         alarmAndReturn("用户名密码错误，重新登陆", "login.php");
     }else{

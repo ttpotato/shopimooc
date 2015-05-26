@@ -68,3 +68,11 @@ function getResultNum($sql){
     $result = mysqli_query($link, $sql);
     return mysqli_num_rows($result);
 }
+
+function getResultByRows($page, $pageSize, $table){
+    $link = connect();
+    $offset = ($page - 1) * $pageSize;
+    $sql = "select * from {$table} limit {$offset},{$pageSize}";
+    $rows = mysqli_query($link, $sql);
+    return $rows;
+}

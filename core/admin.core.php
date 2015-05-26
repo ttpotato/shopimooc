@@ -33,26 +33,9 @@ function deleteAdmin($id){
     }
 }
 
-function addUser(){
-    $adminName = $_POST["adminName"];
-    $password = $_POST["password"];
-    $email = $_POST["email"];
-
-    $table = "imooc_user";
-    $array = array("username" => $adminName, "password" => $password, "email" => $email);
-    #var_dump($array);
-    $result = insert($table, $array);
-    if ($result == 0) {
-        $mes = "添加失败";
-    } else {
-        $mes = "添加成功<br><a href='addAdmin.php'>继续添加</a>|<a href='listAdmin.php'>管理员列表</a>";
-    }
-    return $mes;
-}
-
 function checkLogined(){
     if($_SESSION['adminId'] == ""){
-        alarmAndReturn("请先登录", "doLogin.php");
+        alarmAndReturn("请先登录", "login.php");
     }
 }
 
@@ -89,3 +72,4 @@ function editAdmin($id){
     }
     return $mes;
 }
+

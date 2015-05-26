@@ -8,3 +8,6 @@ require_once 'mysql.func.php';
 require_once 'configs.php';
 require_once 'common.func.php';
 require_once 'admin.core.php';
+require_once 'page.func.php';
+require_once 'cate.core.php';
+require_once 'user.core.php';

@@ -1,6 +1,14 @@
 <?php
 require_once '../include.php';
-$rows = listAllAdmin();
+$page = $_REQUEST['page']?(int)$_REQUEST['page']:1;
+$pageSize = 2;
+$table = "imooc_admin";
+$rows = getResultByRows($page, $pageSize, $table);
+
+$sql = "select * from imooc_admin";
+$totalRows = getResultNum($sql);
+$totalPage = ceil($totalRows/$pageSize);
+
 ?>
 
 <html>
@@ -14,7 +22,7 @@ $rows = listAllAdmin();
 <table width="50%" cellpadding="5" cellspacing="0" border="1">
     <thead>
     <tr>
-        <th>管理员id</th>
+        <th>管理员编号</th>
         <th>管理员姓名</th>
         <th>管理员邮箱</th>
         <th>操作</th>
@@ -29,6 +37,11 @@ $rows = listAllAdmin();
             <td align="center"><input type="button" value="修改" onclick="editAdmin(<?php echo $row['id']; ?>)">&nbsp<input type="button" value="删除" onclick="deleteAdmin(<?php echo $row['id'];?>)"></td>
         </tr>
     <?php endforeach; ?>
+    <?php if($totalRows > $pageSize): ?>
+    <tr>
+        <td content="4"><?php echo showPage($page, $totalPage) ?></td>
+    </tr>
+    <?php endif; ?>
     </tbody>
 </table>
     <center>
