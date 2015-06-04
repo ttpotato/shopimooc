@@ -1,5 +1,4 @@
 <?php
-require_once '../include.php';
 
 function showPage($page, $totalPage){
 //初始设定page，offset

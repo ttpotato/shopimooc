@@ -1,5 +1,5 @@
 <?php
-require_once '../include.php';
+
 function createVerifyImg(){
     $width = 80;
     $height = 28;
@@ -24,5 +24,33 @@ function createVerifyImg(){
     imagegif ( $img );
     imagedestroy ( $img );
 }
-#createVerifyImg();
 
+function generateThumbnails($fileNames, $percent, $dstDir){
+
+    foreach($fileNames as $file){
+        $ext = getExt($file);
+        $imageCreateFunction = "imagecreatefrom".$ext;
+        $imageMaker = "image".$ext;
+        $srcImg = call_user_func($imageCreateFunction, $file);
+
+        list($srcWidth, $srcHeight) = getimagesize($file);
+        $dstWidth = ceil($srcWidth * $percent);
+        $dstHeight = ceil($srcHeight * $percent);
+        $dstImg = imagecreatetruecolor($dstWidth, $dstHeight);
+        imagecopyresampled($dstImg, $srcImg, 0, 0, 0, 0, $dstWidth, $dstHeight, $srcWidth, $srcHeight);
+        //header("content-type:image/gif");
+        $name = strtolower(end(explode(DIRECTORY_SEPARATOR, $file)));
+        $dstName = $dstDir.DIRECTORY_SEPARATOR.$name;
+        echo $dstName;
+        call_user_func($imageMaker, $dstImg, $dstName);
+        imagedestroy($dstImg);
+    }
+
+
+
+}
+
+
+//$percent = 0.5;
+//$dstDir = ROOT.DIRECTORY_SEPARATOR."images".DIRECTORY_SEPARATOR."thumbnails".DIRECTORY_SEPARATOR."new.gif";
+//echo generateThumbnails($fileName, $percent, $dstDir);

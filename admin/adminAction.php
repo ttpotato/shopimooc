@@ -3,6 +3,7 @@ require_once '../include.php';
 
 $act = $_REQUEST['act'];
 $id = $_REQUEST['id']?$_REQUEST['id']:null;
+$fileInfo = $_FILES?$_FILES:null;
 if($act == "addAdmin"){
     $msg = addAdmin();
 }elseif($act == "editAdmin"){
@@ -14,7 +15,7 @@ if($act == "addAdmin"){
 }elseif($act == 'editUser'){
     $msg = editUser($id);
 }elseif($act == 'deleteUser'){
-    $msg = deleteUser();
+    $msg = deleteUser($id);
 }elseif($act == "logout"){
     logout();
     $msg = "";
@@ -22,6 +23,10 @@ if($act == "addAdmin"){
     $msg = addCate();
 }elseif($act == "deleteCate"){
     $msg = deleteCate($id);
+}elseif($act == "uploadImg"){
+    $msg = fileUpload();
+}elseif($act == "addPro"){
+    $msg = addPro();
 }
 ?>
 
@@ -31,7 +36,8 @@ if($act == "addAdmin"){
 </head>
 <body>
 <?php
-    echo $msg;
+    //echo $msg;
+print_r($msg);
 ?>
 </body>
 </html>

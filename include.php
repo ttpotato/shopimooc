@@ -11,3 +11,5 @@ require_once 'admin.core.php';
 require_once 'page.func.php';
 require_once 'cate.core.php';
 require_once 'user.core.php';
+require_once 'upload.func.php';
+require_once 'pro.core.php';

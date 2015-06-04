@@ -30,7 +30,7 @@ function editUser($id){
     if ($result != 1) {
         $mes = "编辑失败";
     } else {
-        $mes = "编辑成功<br><a href='listAdmin.php'>管理员列表</a>";
+        $mes = "编辑成功<br><a href='listUser.php'>管理员列表</a>";
     }
     return $mes;
 }
@@ -42,7 +42,7 @@ function deleteUser($id){
     if ($result != 1) {
         $mes = "删除失败";
     } else {
-        $mes = "删除成功<br><a href='listAdmin.php'>管理员列表</a>";
+        $mes = "删除成功<br><a href='listUser.php'>管理员列表</a>";
     }
     return $mes;
 }

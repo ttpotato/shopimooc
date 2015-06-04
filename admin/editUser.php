@@ -11,15 +11,15 @@ $row = fetchOne($sql);
     <title>编辑用户信息</title>
 </head>
 <body>
-<form method="post" action="adminAction.php?act=editUser&id=<?php echo $row['id'] ?>" />
+<form method="post" action="adminAction.php?act=editUser&id=<?php echo $id ?>" />
 <table>
     <tr>
         <th>用户名</th>
-        <td><input type="text" name="username" value=<?php echo $row['username']?></td>
+        <td><input type="text" name="username" value="<?php echo $row['username']; ?>" </td>
     </tr>
     <tr>
         <th>邮箱</th>
-        <td><input type="text" name="email" value=<?php echo $row['email']?> </td>
+        <td><input type="text" name="email" value="<?php echo $row['email'];?>"</td>
     </tr>
     <tr>
         <td colspan="2">

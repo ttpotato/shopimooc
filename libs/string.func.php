@@ -4,3 +4,11 @@ function getVerifyString(){
     $chars = str_shuffle($chars);
     return substr($chars, 0, 4);
 }
+
+function getExt($fileName){
+    return strtolower(end(explode(".", $fileName)));
+}
+
+function getUniqueName($fileName){
+    return md5(uniqid($fileName, true));
+}
